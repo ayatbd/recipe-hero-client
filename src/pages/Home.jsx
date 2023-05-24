@@ -1,11 +1,11 @@
-import React from 'react';
+import Slide from "./Slide";
 
 const Home = () => {
-    return (
-        <div>
-            this is home
-        </div>
-    );
+  return (
+    <div>
+      <Slide></Slide>
+    </div>
+  );
 };
 
 export default Home;
