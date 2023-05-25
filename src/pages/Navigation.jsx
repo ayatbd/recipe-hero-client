@@ -7,6 +7,9 @@ const Navigation = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
+    if(handleLogOut){
+        alert("do you really want to logout?")
+    };
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
@@ -64,17 +67,12 @@ const Navigation = () => {
             Logout
           </button>
         )}
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            {!user ? (
-              <img src={logo} />
-            ) : (
-              <div>
-                <img src={user?.photoURL} />
-              </div>
-            )}
-          </div>
-        </label>
+        <div tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <img
+            className="w-10 rounded-full border-2 p-1"
+            src={user ? user.photoURL : logo}
+          />
+        </div>
       </div>
     </div>
   );

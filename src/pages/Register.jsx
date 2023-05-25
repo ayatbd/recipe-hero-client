@@ -14,6 +14,7 @@ const Register = () => {
     const photo = form.photo.value;
     console.log(name, email, password, photo);
 
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -74,7 +75,7 @@ const Register = () => {
             </button>
           </div>
           <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
-            Don't have an account?{" "}
+             Dont have an account?{" "}
             <Link
               to="/login"
               className="text-red-600 hover:underline hover:underline-offset-4"
