@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleRegister = (event) => {
+    setSuccess("");
+
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -14,13 +18,23 @@ const Register = () => {
     const photo = form.photo.value;
     console.log(name, email, password, photo);
 
+    // if(email.length !== 6 ){
+    //   return setError("the password should be at least 6 characters");
+    // }
+
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log("created user", user);
+        setError("");
+        setSuccess("User has created successfully");
+        form.reset()
       })
-      .catch((error) => console.log(error));
+      .catch((error) =>{
+        console.log(error)
+        setError(error.message)
+      });
   };
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
@@ -84,7 +98,10 @@ const Register = () => {
             </Link>
           </div>
         </div>
+        <p className="mt-4 text-start text-orange-600">{error}</p>
+        <p className="mt-4 text-start text-green-600">{success}</p>
       </form>
+      
     </section>
   );
 };

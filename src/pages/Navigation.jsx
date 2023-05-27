@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const handleLogOut = () => {
     if(handleLogOut){
-        alert("do you really want to logout?")
+        alert("Please confirm Logout")
     };
     logOut()
       .then(() => {})

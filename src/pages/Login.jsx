@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import app from "../firebase/firebase.config";
 import { useContext, useState } from "react";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../provider/AuthProvider";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
+  
   const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider()
 
   const { signIn } = useContext(AuthContext);
 
@@ -23,11 +26,14 @@ function App() {
         const user = result.user;
         console.log(user);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setError(error.message)
+      });
   };
 
   const handleLoginWithPopUp = () => {
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, googleProvider)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -37,6 +43,18 @@ function App() {
         console.log("error", error.message);
       });
   };
+
+  const handleGithublogin = () =>{
+    signInWithPopup(auth, githubProvider)
+    .then((result) => {
+      const githubUser = result.user;
+      console.log(githubUser);
+      setUser(githubUser);
+    })
+    .catch((error) => {
+      console.log("error", error.message);
+    });
+  }
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
       <div className="md:w-1/3 max-w-sm">
@@ -65,6 +83,7 @@ function App() {
               </svg>
             </button>
             <button
+            onClick={handleGithublogin}
               type="button"
               className="inlne-block mx-1 h-9 w-9 rounded-full bg-blue-600 hover:bg-blue-700 uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca]"
             >
@@ -128,7 +147,9 @@ function App() {
             </Link>
           </div>
         </div>
+        <p className="mt-4 text-start text-orange-600">{error}</p>
       </form>
+      
     </section>
   );
 }

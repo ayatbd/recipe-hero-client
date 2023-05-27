@@ -4,11 +4,16 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Blogs from "../pages/Blogs";
+import HeroArea from "../pages/HeroArea";
+import Portfolio from "../pages/Portfolio";
+import NotFoundPage from "../pages/NotFounPage";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <NotFoundPage></NotFoundPage>,
     children: [
       {
         path: "/",
@@ -26,6 +31,14 @@ const router = createBrowserRouter([
         path: "blogs",
         element: <Blogs></Blogs>,
       },
+      {
+        path: "hero",
+        element: <HeroArea></HeroArea>
+      },
+      {
+        path: "portfolio",
+        element: <Portfolio></Portfolio>
+      }
     ],
   },
 ]);
