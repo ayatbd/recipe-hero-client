@@ -1,3 +1,4 @@
+import Chef from "./Chef";
 import HeroArea from "./HeroArea";
 import Portfolio from "./Portfolio";
 import Slide from "./Slide";
@@ -8,6 +9,7 @@ const Home = () => {
       <Slide></Slide>
       <HeroArea></HeroArea>
       <Portfolio></Portfolio>
+      <Chef></Chef>
     </div>
   );
 };

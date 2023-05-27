@@ -43,7 +43,7 @@ const Navigation = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Recife Hero</a>
+        <Link className="ml-2 normal-case text-xl">Recife Hero</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -59,15 +59,15 @@ const Navigation = () => {
         {!user ? (
           <ul className="mr-10 flex flex-row gap-5">
             <li>
-              <Link to="login">Login</Link>
+              <Link to="login" className="btn btn-outline btn-accent">Login</Link>
             </li>
           </ul>
         ) : (
-          <button onClick={handleLogOut} className="mr-5">
+          <button onClick={handleLogOut} className="mr-5 btn btn-outline btn-accent">
             Logout
           </button>
         )}
-        <div tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip" data-tip={user?.displayName}>
           <img
             className="w-10 rounded-full border-2 p-1"
             src={user ? user.photoURL : logo}
