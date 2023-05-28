@@ -7,6 +7,8 @@ import Blogs from "../pages/Blogs";
 import HeroArea from "../pages/HeroArea";
 import NotFoundPage from "../pages/NotFounPage";
 import RecifeGallery from "../pages/RecifeGallery";
+import ChefCard from "../pages/ChefCard";
+import ViewRecife from "../pages/ViewRecife";
 
 
 const router = createBrowserRouter([
@@ -38,6 +40,16 @@ const router = createBrowserRouter([
       {
         path: "recife",
         element: <RecifeGallery></RecifeGallery>
+      },
+      {
+        path: "chefcard",
+        element: <ChefCard></ChefCard>
+      },
+      {
+        path: "chefs/:id",
+        element: <ViewRecife></ViewRecife>,
+        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+
       }
     ],
   },

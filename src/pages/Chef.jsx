@@ -19,7 +19,7 @@ const Chef = () => {
             <div className="grid grid-cols-3 gap-4">
             {
                 chefs.map(chef => <ChefCard
-                key={chef.id} chef={chef}></ChefCard>)
+                key={chef._id} chef={chef}></ChefCard>)
             }
             </div>
             
