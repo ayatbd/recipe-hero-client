@@ -5,8 +5,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Blogs from "../pages/Blogs";
 import HeroArea from "../pages/HeroArea";
-import Portfolio from "../pages/Portfolio";
 import NotFoundPage from "../pages/NotFounPage";
+import RecifeGallery from "../pages/RecifeGallery";
 
 
 const router = createBrowserRouter([
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
         element: <HeroArea></HeroArea>
       },
       {
-        path: "portfolio",
-        element: <Portfolio></Portfolio>
+        path: "recife",
+        element: <RecifeGallery></RecifeGallery>
       }
     ],
   },

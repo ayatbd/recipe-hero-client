@@ -14,11 +14,15 @@ const Chef = () => {
 
     return (
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="my-20">
+            <h3 className="font-bold text-3xl text-center mb-7">Recife Heroes</h3>
+            <div className="grid grid-cols-3 gap-4">
             {
                 chefs.map(chef => <ChefCard
                 key={chef.id} chef={chef}></ChefCard>)
             }
+            </div>
+            
         </div>
     );
 };

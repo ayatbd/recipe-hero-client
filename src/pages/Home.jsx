@@ -1,6 +1,6 @@
 import Chef from "./Chef";
 import HeroArea from "./HeroArea";
-import Portfolio from "./Portfolio";
+import RecifeGallery from "./RecifeGallery";
 import Slide from "./Slide";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <Slide></Slide>
       <HeroArea></HeroArea>
-      <Portfolio></Portfolio>
+      <RecifeGallery></RecifeGallery>
       <Chef></Chef>
     </div>
   );
