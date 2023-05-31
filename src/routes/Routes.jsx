@@ -9,6 +9,7 @@ import NotFoundPage from "../pages/NotFounPage";
 import RecifeGallery from "../pages/RecifeGallery";
 import ChefCard from "../pages/ChefCard";
 import ViewRecife from "../pages/ViewRecife";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: "chefs/:id",
-        element: <ViewRecife></ViewRecife>,
+        element: <PrivateRoute><ViewRecife></ViewRecife></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
 
       }

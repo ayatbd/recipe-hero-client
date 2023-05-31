@@ -9,7 +9,7 @@ const Navigation = () => {
   const handleLogOut = () => {
     if(handleLogOut){
         alert("Please confirm Logout")
-    };
+    }
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
@@ -39,11 +39,14 @@ const Navigation = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/home">Home</Link>
-            </li>
+            <Link to="/">Home</Link>
+          </li>
+            <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
           </ul>
         </div>
-        <Link className="ml-2 normal-case text-xl">Recife Hero</Link>
+        <Link className="ml-2 normal-case text-xl hidden md:inline">Recife Hero</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

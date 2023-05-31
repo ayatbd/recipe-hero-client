@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/no-unescaped-entities */
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import app from "../firebase/firebase.config";
 import { useContext, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../provider/AuthProvider";
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   
@@ -13,6 +15,9 @@ function App() {
   const githubProvider = new GithubAuthProvider()
 
   const { signIn } = useContext(AuthContext);
+  const Navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -25,6 +30,7 @@ function App() {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        Navigate(from, { replace: true});
       })
       .catch((error) => {
         console.log(error);
@@ -38,6 +44,7 @@ function App() {
         const loggedUser = result.user;
         console.log(loggedUser);
         setUser(loggedUser);
+        Navigate(from, { replace: true});
       })
       .catch((error) => {
         console.log("error", error.message);
@@ -50,6 +57,7 @@ function App() {
       const githubUser = result.user;
       console.log(githubUser);
       setUser(githubUser);
+      Navigate(from, { replace: true});
     })
     .catch((error) => {
       console.log("error", error.message);
