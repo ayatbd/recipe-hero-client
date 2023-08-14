@@ -1,10 +1,7 @@
-import "../pages/Customs/Custom.css"
+import "../pages/Customs/Custom.css";
 const HeroArea = () => {
   return (
-    <div
-      className="hero min-h-screen hero-bg"
-      
-    >
+    <div className="hero min-h-screen hero-bg mt-14">
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">

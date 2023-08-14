@@ -10,7 +10,7 @@ import RecifeGallery from "../pages/RecifeGallery";
 import ChefCard from "../pages/ChefCard";
 import ViewRecife from "../pages/ViewRecife";
 import PrivateRoute from "./PrivateRoute";
-
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -35,23 +35,33 @@ const router = createBrowserRouter([
         element: <Blogs></Blogs>,
       },
       {
+        path: "about",
+        element: <AboutUs></AboutUs>,
+      },
+      {
         path: "hero",
-        element: <HeroArea></HeroArea>
+        element: <HeroArea></HeroArea>,
       },
       {
         path: "recife",
-        element: <RecifeGallery></RecifeGallery>
+        element: <RecifeGallery></RecifeGallery>,
       },
       {
         path: "chefcard",
-        element: <ChefCard></ChefCard>
+        element: <ChefCard></ChefCard>,
       },
       {
         path: "chefs/:id",
-        element: <PrivateRoute><ViewRecife></ViewRecife></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
-
-      }
+        element: (
+          <PrivateRoute>
+            <ViewRecife></ViewRecife>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://b7a10-chef-recipe-hunter-server-side-ayatbd.vercel.app/chefs/${params.id}`
+          ),
+      },
     ],
   },
 ]);
