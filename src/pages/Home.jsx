@@ -1,16 +1,19 @@
+import Container from "../components/Container";
 import Chef from "./Chef";
 import HeroArea from "./HeroArea";
 import RecifeGallery from "./RecifeGallery";
-import Slide from "./Slide";
+import Banner from "./Banner";
 
 const Home = () => {
   return (
-    <div>
-      <Slide></Slide>
-      <HeroArea></HeroArea>
-      <RecifeGallery></RecifeGallery>
-      <Chef></Chef>
-    </div>
+    <Container>
+      <div>
+        <Banner></Banner>
+        <HeroArea></HeroArea>
+        <RecifeGallery></RecifeGallery>
+        <Chef></Chef>
+      </div>
+    </Container>
   );
 };
 

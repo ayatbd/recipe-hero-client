@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // import { useNavigation } from "react-router-dom";
 import { FaEnvelopeOpen, FaPhoneAlt, FaSearchLocation } from "react-icons/fa";
 import PagesBanner from "../shared/PagesBanner";

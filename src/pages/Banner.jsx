@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
 
-const BannerHome = () => {
+const Banner = () => {
   return (
     <LazyLoad threshold={0.95}>
       <div className="w-full h-[100vh] bg-[url('https://i.ibb.co/Ms7FXkY/bannner2.jpg')] bg-no-repeat bg-cover bg-blend-overlay bg-center ">
@@ -60,4 +60,4 @@ const BannerHome = () => {
   );
 };
 
-export default BannerHome;
+export default Banner;
