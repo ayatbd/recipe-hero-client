@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   if (loading) {
-    return <progress className="progress w-56"></progress>;
+    return <span className="loading loading-ring loading-lg"></span>;
   }
 
   const authInfo = {

@@ -4,6 +4,7 @@ import { FaBookmark } from "react-icons/fa";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Container from "../components/Container";
+import PagesBanner from "../shared/PagesBanner";
 
 const ViewRecife = () => {
   const chef = useLoaderData();
@@ -28,13 +29,18 @@ const ViewRecife = () => {
 
   return (
     <Container>
-      <div className="mt-10">
-        <div className="flex">
+      <div className="">
+        <PagesBanner></PagesBanner>
+        <div className="flex mt-8 justify-between items-center gap-16">
           <img className="w-[700px] h-80 mx-auto" src={picture} />
-          <div className="flex justify-between items-center mt-5">
+          <div className="w-3/4 flex-col justify-between items-center mt-5">
             <div className="w-1/2 text-start">
+              <h2 className="text-4xl font-semibold">{name}</h2>
+              <p>{description}</p>
+            </div>
+            <div className="w-1/2 text-start mt-10">
               <p>
-                <span className="font-bold mr-2">Name:</span> {name}
+                <span className="font-bold mr-2">Recifes:</span> {recipes}
               </p>
               <p>
                 <span className="font-bold mr-2">Experience:</span> {experience}
@@ -43,21 +49,12 @@ const ViewRecife = () => {
                 <span className="font-bold mr-2">Likes:</span> {likes}
               </p>
             </div>
-            <div className="w-1/2 text-start">
-              <p>
-                <span className="font-bold mr-2">Recifes:</span> {recipes}
-              </p>
-              <p>
-                <span className="font-bold mr-2">Description:</span>
-                {description}
-              </p>
-            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-8">
           {chef.recife_info.map((info) => (
-            <div key={info.name} className="card w-96 bg-base-100 shadow-xl">
+            <div key={info.name} className="card bg-base-100 shadow-xl">
               <div className="card-body">
                 <h2 className="text-center font-bold text-2xl">
                   {info.recipe_name}
