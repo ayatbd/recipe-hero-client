@@ -6,12 +6,12 @@ import LazyLoad from "react-lazy-load";
 const Banner = () => {
   return (
     <LazyLoad threshold={0.95}>
-      <div className="w-full h-[100vh] bg-[url('https://i.ibb.co/Ms7FXkY/bannner2.jpg')] bg-no-repeat bg-cover bg-blend-overlay bg-center ">
+      <div className="overflow-hidden w-full h-[100vh] bg-[url('https://i.ibb.co/Ms7FXkY/bannner2.jpg')] bg-no-repeat bg-cover bg-blend-overlay bg-center ">
         <div className="bg-black w-full h-[100vh] bg-opacity-30">
-          <div className="flex flex-col justify-center items-center lg:items-start h-[75%] md:h-[82%] max-container px-5 lg:px-0 text-center lg:text-left">
+          <div className="flex flex-col justify-center items-center lg:items-start h-[75%] md:h-[82%] max-container ml-5 px-5 lg:px-0 text-center lg:text-left">
             <h1 className="text-white text-3xl md:text-6xl font-bold ">
-              YES WE HAVE BEST <br />{" "}
-              <span className="primary-color">CHEF & RECIPES</span>{" "}
+              YES WE HAVE BEST <br />
+              <span className="primary-color">CHEF & RECIPES</span>
             </h1>
             <p className="max-w-[500px] text-white my-4 font-mono">
               At Cooking Classy, chefs are family. That's why, for over three

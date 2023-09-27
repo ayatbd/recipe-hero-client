@@ -1,7 +1,7 @@
 import logo from "../assets/images/logo.jpg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Container from "../components/Container";
 import Swal from "sweetalert2";
 
@@ -23,26 +23,8 @@ const Navigation = () => {
       .catch((error) => console.log(error));
   };
 
-  const [scrollTop, setScrollTop] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = (event) => {
-      setScrollTop(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div
-      className={`absolute left-0 right-0 z-10 ${
-        scrollTop > 150 ? "bg-black bg-opacity-75" : ""
-      }`}
-    >
+    <div>
       <Container>
         <div className={`navbar w-full bg-gray-500 bg-opacity-70 py-4 z-50`}>
           <div className="navbar-start">
